@@ -1,0 +1,31 @@
+{% extends "base_univerzal.html" %}
+{% load static %}
+
+{% block title %}ADMIN PAGE{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "adminapp/aktualni_den.css" %}">
+{% endblock css_files %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <label for="aktualni_den">Aktuální den:</label><br>
+        <input type="number" id="aktualni_den" name="aktualni_den"><br>
+        <input type="submit" value="AKTUALIZOVAT den">
+</form>
+
+
+<div class="menu">
+    <ul>
+        <li><button><a href="javascript:history.back()">ZPĚT</a></button></li>
+        <li><button><a href="/">Zpět na hlavní stranu</a></button></li>
+        <li><button><a href="pepa_full_tym">Detail hráčů</a></button></li>
+        <li><button><a href="pepa_leaderboard">Žebříček</a></button></li>
+        <li><button><a href="pepa_detail_statistika">Detailní statistika</a></button></li>
+        <li><button><a href="pepa_jednotlive_dny">Výsledky za jednotlivé dny</a></button></li>
+        <li><button><a href="{% url "pepa_main_page" %}">Zpět na přehled avatara</a></button></li>
+    </ul>
+</div>
+{% endblock content %}
